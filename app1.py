@@ -1,3 +1,11 @@
+import sys
+import os
+
+# Ensure the app's own directory is always on the path (needed for Streamlit Cloud / deployed envs)
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
+if APP_DIR not in sys.path:
+    sys.path.insert(0, APP_DIR)
+
 import streamlit as st
 from datetime import datetime
 import json
